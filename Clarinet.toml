@@ -1,0 +1,29 @@
+[project]
+name = 'time-capsule'
+description = ''
+authors = []
+telemetry = true
+cache_dir = '.\.cache'
+requirements = []
+[contracts.time-capsule-trait]
+path = 'contracts/time-capsule-trait.clar'
+clarity_version = 3
+epoch = 3.1
+
+[contracts.time-capsule]
+path = 'contracts/time-capsule.clar'
+clarity_version = 3
+epoch = 3.1
+depends_on = ["time-capsule-trait"]
+[repl.analysis]
+passes = ['check_checker']
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
+
+[repl.remote_data]
+enabled = false
+api_url = 'https://api.hiro.so'
